@@ -39,15 +39,17 @@ shortestToLongest(strings3);
 
 function shortestToLongest(strings, sorted = []) {
   // Your code here
-
+  if (strings.length === 0) {
+    return sorted;
+  }
   // 1. Find the shortest string in the `strings` array
-
+  let shortest = strings.reduce((a, b) => a.length < b.length || (a.length === b.length && a < b) ? a : b);
   // 2. Remove the shortest string from the `strings` array
-
+  let newStrings = strings.filter(str => str !== shortest);
   // 3. Push the shortest string to the back of the `sorted` array
-
+  sorted.push(shortest);
   // 4. Recurse until the `strings` array is empty (base case)
-
+  return shortestToLongest(newStrings, sorted);
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/

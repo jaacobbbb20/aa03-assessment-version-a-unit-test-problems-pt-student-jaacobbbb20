@@ -31,7 +31,7 @@ function printNumbersBetween(startNum, endNum) {
   console.log(startNum);
 
   // Base Case: Stop the program when startNum equals endNum
-  if (startNum = endNum) {
+  if (startNum === endNum) {
     return;
   }
 
@@ -39,9 +39,9 @@ function printNumbersBetween(startNum, endNum) {
   // number, decrease it by one. Otherwise, increase
   // it by one.
   if (startNum < endNum) {
-    startNum - 1;
+    startNum += 1;
   } else {
-    startNum + 1;
+    startNum -= 1;
   }
 
   // Make a recursive call with the modified number.

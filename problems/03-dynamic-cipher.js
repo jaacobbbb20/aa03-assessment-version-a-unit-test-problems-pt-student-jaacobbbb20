@@ -29,7 +29,29 @@ console.log(rotateLeftTwo(word2)); // "cee"
 const ALPHABET = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 
 function dynamicCipher(offset) {
-  // Your code here 
+  
+    return function(str) {
+      let result = "";
+
+      for (let i = 0; i < str.length; i++) {
+        let charIndex = ALPHABET.indexOf(str[i].toLowerCase());
+
+        if (charIndex === -1) {
+          result += str[i];
+        } else {
+          let newIndex = (charIndex + offset) % ALPHABET.length;
+
+          if (newIndex < 0) {
+            newIndex += ALPHABET.length;
+          }
+
+          result += str[i] === str[i].toUpperCase() ?  ALPHABET[newIndex].toUpperCase() : ALPHABET[newIndex];
+        }
+      }
+
+      return result;
+
+    }
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/

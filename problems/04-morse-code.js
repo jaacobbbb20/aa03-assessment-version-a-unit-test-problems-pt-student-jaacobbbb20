@@ -21,7 +21,14 @@ morseCode(code);
 ***********************************************************************/
 
 function morseCode(code) {
-  // Your code here 
+  
+  if (code.length === 0) return;
+
+  console.log(code[0]);
+
+  let pauseTime = code[0] === 'dot' ? 100 : 300;
+
+  globalThis.setTimeout(() => morseCode(code.slice(1)), pauseTime);
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
